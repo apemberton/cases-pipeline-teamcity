@@ -25,7 +25,7 @@ changeBuildType(RelativeId("Build")) {
         update<ScriptBuildStep>(0) {
             scriptContent = """
                 echo "Create Artifacts Folder"
-                sh "mkdir ${'$'}{env.ArtifactsFolder}"
+                sh "mkdir ${'$'}{ArtifactsFolder}"
             """.trimIndent()
         }
     }
