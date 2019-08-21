@@ -26,7 +26,7 @@ create(DslContext.projectId, BuildType({
                 sh "python -m outsystems.pipeline.fetch_lifetime_data --artifacts \"${'$'}ArtifactsFolder}\" --lt_url ${'$'}{LifeTimeEnvironmentURL} --lt_token ${'$'}{AuthorizationToken} --lt_api_version ${'$'}{LifeTimeAPIVersion}
                 
                 // echo 'Deploying latest application tags to Regression...'
-                // sh "python -m outsystems.pipeline.deploy_latest_tags_to_target_env --artifacts \"${'$'}{ArtifactsFolder}\" --lt_url ${'$'}{LifeTimeEnvironmentURL} --lt_token ${'$'}{env.AuthorizationToken} --lt_api_version ${'$'}{env.LifeTimeAPIVersion} --source_env \"${'$'}{env.DevelopmentEnvironment}\" --destination_env \"${'$'}{env.AcceptanceEnvironment}\" --app_list \"${'$'}{env.ApplicationScopeWithTests}\""
+                // sh "python -m outsystems.pipeline.deploy_latest_tags_to_target_env --artifacts \"${'$'}{ArtifactsFolder}\" --lt_url ${'$'}{LifeTimeEnvironmentURL} --lt_token ${'$'}{AuthorizationToken} --lt_api_version ${'$'}{LifeTimeAPIVersion} --source_env \"${'$'}{DevelopmentEnvironment}\" --destination_env \"${'$'}{AcceptanceEnvironment}\" --app_list \"${'$'}{ApplicationScopeWithTests}\""
             """.trimIndent()
         }
     }
