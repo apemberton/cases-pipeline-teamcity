@@ -15,16 +15,19 @@ changeProject(DslContext.projectId) {
             param("env.LifeTimeAPIVersion", "2")
         }
         add {
-            param("ApplicationScope", "")
-        }
-        add {
             param("env.LifeTimeEnvironmentURL", "wwdt-lt.outsystemsenterprise.com")
         }
         add {
             param("TriggeredBy", "")
         }
         add {
+            param("ApplicationScope", "")
+        }
+        add {
             param("env.ArtifactsFolder", "Artifacts")
+        }
+        add {
+            param("env.DevelopmentEnvironment", "Development")
         }
         add {
             param("ApplicationScopeWithTests", "")
