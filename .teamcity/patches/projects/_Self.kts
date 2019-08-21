@@ -14,5 +14,8 @@ changeProject(DslContext.projectId) {
         add {
             param("ApplicationScope", "")
         }
+        add {
+            param("ApplicationScopeWithTests", "")
+        }
     }
 }
