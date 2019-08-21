@@ -12,6 +12,9 @@ accordingly, and delete the patch script.
 changeProject(DslContext.projectId) {
     params {
         add {
+            param("env.ProbeEnvironmentURL", "https://wwdt-tst.outsystemsenterprise.com")
+        }
+        add {
             param("env.LifeTimeAPIVersion", "2")
         }
         add {
