@@ -26,6 +26,16 @@ changeBuildType(RelativeId("Build")) {
             scriptContent = """
                 echo "Create Artifacts Folder"
                 mkdir ${'$'}{ArtifactsFolder}
+                
+                curl https://bootstrap.pypa.io/get-pip.py >> get-pip.py && sudo python get-pip.py
+                
+                // Only the virtual environment needs to be installed at the system level
+                echo "Install Python Virtual environments"
+                pip3 install -q -I virtualenv
+                
+                // Install the rest of the dependencies
+                echo "Install Python requirements"
+                pip install -U outsystems-pipeline
             """.trimIndent()
         }
     }
