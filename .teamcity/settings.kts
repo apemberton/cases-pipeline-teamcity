@@ -31,6 +31,57 @@ project {
     buildType(Build)
 }
 
+params {
+    add {
+        param("ApplicationScope", "")
+    }
+    add {
+        param("ApplicationScopeWithTests", "")
+    }
+    add {
+        param("TriggeredBy", "")
+    }
+    add {
+        param("AuthorizationToken", "")
+    }
+    
+    //environment variables
+    
+    // Artifacts Folder
+    add {
+        param("env.ArtifactsFolder", "Artifacts")
+    }
+    // LifeTime Specification
+    add {
+        param("env.LifeTimeAPIVersion", "2")
+    }
+    add {
+        param("env.LifeTimeEnvironmentURL", "wwdt-lt.outsystemsenterprise.com")
+    }
+    add {
+        param("env.LifeTimeEnvironmentURL", "wwdt-lt.outsystemsenterprise.com")
+    }
+    
+    // Environments Specification
+    add {
+        param("env.DevelopmentEnvironment", "Development")
+    }
+    add {
+        param("env.AcceptanceEnvironment", "Testing")
+    }
+    add {
+        param("env.ProductionEnvironment", "Production")
+    }
+
+    // Regression URL Specification
+    add {
+        param("env.ProbeEnvironmentURL", "https://wwdt-tst.outsystemsenterprise.com")
+    }
+    add {
+        param("env.BddEnvironmentURL", "https://wwdt-tst.outsystemsenterprise.com")
+    }
+}
+
 object Build : BuildType({
     name = "Build"
 
