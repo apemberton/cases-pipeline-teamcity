@@ -27,6 +27,11 @@ changeProject(DslContext.projectId) {
             param("env.BddEnvironmentURL", "https://wwdt-tst.outsystemsenterprise.com")
         }
         add {
+            param("env.AuthorizationToken", """
+                credentialsJSON:9e706a7c-4c12-41f7-97e9-02da8d6599d8
+            """.trimIndent())
+        }
+        add {
             param("env.AcceptanceEnvironment", "Testing")
         }
         add {
