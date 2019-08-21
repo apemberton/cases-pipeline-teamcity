@@ -12,10 +12,13 @@ accordingly, and delete the patch script.
 changeProject(DslContext.projectId) {
     params {
         add {
+            param("ApplicationScope", "")
+        }
+        add {
             param("TriggeredBy", "")
         }
         add {
-            param("ApplicationScope", "")
+            param("env.ArtifactsFolder", "Artifacts")
         }
         add {
             param("ApplicationScopeWithTests", "")
