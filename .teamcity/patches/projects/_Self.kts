@@ -24,6 +24,9 @@ changeProject(DslContext.projectId) {
             param("TriggeredBy", "")
         }
         add {
+            param("env.BddEnvironmentURL", "https://wwdt-tst.outsystemsenterprise.com")
+        }
+        add {
             param("env.AcceptanceEnvironment", "Testing")
         }
         add {
