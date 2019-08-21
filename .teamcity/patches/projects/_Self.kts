@@ -18,6 +18,9 @@ changeProject(DslContext.projectId) {
             param("ApplicationScope", "")
         }
         add {
+            param("env.LifeTimeEnvironmentURL", "wwdt-lt.outsystemsenterprise.com")
+        }
+        add {
             param("TriggeredBy", "")
         }
         add {
