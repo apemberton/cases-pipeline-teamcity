@@ -21,6 +21,9 @@ changeProject(DslContext.projectId) {
             param("TriggeredBy", "")
         }
         add {
+            param("env.AcceptanceEnvironment", "Testing")
+        }
+        add {
             param("ApplicationScope", "")
         }
         add {
