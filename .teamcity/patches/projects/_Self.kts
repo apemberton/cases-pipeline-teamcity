@@ -21,7 +21,7 @@ changeProject(DslContext.projectId) {
             param("env.LifeTimeEnvironmentURL", "wwdt-lt.outsystemsenterprise.com")
         }
         add {
-            param("TriggeredBy", "")
+            param("TriggeredBy", "teamcity")
         }
         add {
             param("env.BddEnvironmentURL", "https://wwdt-tst.outsystemsenterprise.com")
