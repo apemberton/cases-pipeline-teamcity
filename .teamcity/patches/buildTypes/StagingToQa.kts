@@ -2,6 +2,7 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
 import jetbrains.buildServer.configs.kotlin.v2018_2.BuildType
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2018_2.ui.*
 
 /*
@@ -15,6 +16,19 @@ create(DslContext.projectId, BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
+    }
+
+    steps {
+        script {
+            scriptContent = """
+                // echo "Pipeline run triggered remotely by '${'$'}{params.TriggeredBy}' for the following applications (including tests): '${'$'}{params.ApplicationScopeWithTests}'"
+                // echo 'Retrieving latest application tags from Development environment...'
+                sh "python -m outsystems.pipeline.fetch_lifetime_data --artifacts \"${'$'}ArtifactsFolder}\" --lt_url ${'$'}{LifeTimeEnvironmentURL} --lt_token ${'$'}{AuthorizationToken} --lt_api_version ${'$'}{LifeTimeAPIVersion}
+                
+                // echo 'Deploying latest application tags to Regression...'
+                // sh "python -m outsystems.pipeline.deploy_latest_tags_to_target_env --artifacts \"${'$'}{ArtifactsFolder}\" --lt_url ${'$'}{LifeTimeEnvironmentURL} --lt_token ${'$'}{env.AuthorizationToken} --lt_api_version ${'$'}{env.LifeTimeAPIVersion} --source_env \"${'$'}{env.DevelopmentEnvironment}\" --destination_env \"${'$'}{env.AcceptanceEnvironment}\" --app_list \"${'$'}{env.ApplicationScopeWithTests}\""
+            """.trimIndent()
+        }
     }
 }))
 
