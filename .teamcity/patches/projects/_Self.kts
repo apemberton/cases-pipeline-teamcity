@@ -33,6 +33,9 @@ changeProject(DslContext.projectId) {
             param("env.DevelopmentEnvironment", "Development")
         }
         add {
+            param("env.ProductionEnvironment", "Production")
+        }
+        add {
             param("ApplicationScopeWithTests", "")
         }
     }
