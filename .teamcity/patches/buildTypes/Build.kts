@@ -1,6 +1,8 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.ScriptBuildStep
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2018_2.ui.*
 
 /*
@@ -13,4 +15,18 @@ changeBuildType(RelativeId("Build")) {
         "Unexpected name: '$name'"
     }
     name = "Prepare"
+
+    expectSteps {
+        script {
+            scriptContent = "echo 'hello world'"
+        }
+    }
+    steps {
+        update<ScriptBuildStep>(0) {
+            scriptContent = """
+                echo "Create Artifacts Folder"
+                sh "mkdir ${'$'}{env.ArtifactsFolder}"
+            """.trimIndent()
+        }
+    }
 }
