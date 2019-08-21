@@ -35,7 +35,7 @@ changeProject(DslContext.projectId) {
             param("env.AcceptanceEnvironment", "Testing")
         }
         add {
-            param("ApplicationScope", "")
+            param("ApplicationScope", "Cases")
         }
         add {
             param("env.ArtifactsFolder", "Artifacts")
